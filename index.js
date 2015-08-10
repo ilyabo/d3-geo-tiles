@@ -91,8 +91,8 @@ tile.locationToTile = function(lat, lon, zoom) {
 
 tile.tileToBoundingBox = function(x, y, z) {
   return [
-    [tile2lon(x, z), tile2lat(y, z)],
-    [tile2lon(x, z), tile2lat(y, z)]
+    [tile2long(x, z), tile2lat(y, z)],
+    [tile2long(x, z), tile2lat(y, z)]
   ];
 };
 
