@@ -5,5 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "d3": "3.x.x"
+  },
+  "scripts": {
+    "test": "faucet `find test -name '*-test.js'`"
+  },
+  "devDependencies": {
+    "babel": "5",
+    "faucet": "0.0",
+    "tape": "4"
   }
 }
