@@ -81,15 +81,10 @@ function spiralOrder(cols, rows, callback) {
       c, r, t;
 
   for (i = 0; i < n * n; i++) {
-    console.log(x, y);
     c = x + mx; r = -y + my;
     if (c >= 0  &&  c < nx  &&  r >= 0  &&  r < ny) {
       callback(cols[c], rows[r]);
     }
-    //if ((-mx <= x  &&  x <= mx) && (-my <= y  &&  y <= my)) {
-    //  console.log('-> ', cols[c], rows[r]);
-    //
-    //}
     if ((x === y)  ||  (x < 0  &&  x === -y)  ||  (x > 0  &&  x === 1-y)) {
       t = dx;
       dx = -dy;
@@ -99,8 +94,6 @@ function spiralOrder(cols, rows, callback) {
   }
 }
 
-
-//spiralOrder(d3.range(3), d3.range(4), function(x,y) { console.log(x,y);})
 
 
 
