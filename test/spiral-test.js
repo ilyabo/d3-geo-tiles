@@ -1,6 +1,8 @@
 var tape = require("tape"),
     geoTiles = require("../");
 
+
+
 tape("tiles can sort tiles in a spiral", function(test) {
 
   var tiler = geoTiles()
@@ -32,7 +34,7 @@ tape("tiles can sort tiles in a spiral", function(test) {
 
 
 
-tape("tiles can produce a list of tiles for non-square", function(test) {
+tape("tiles can sort tiles in a spiral for non-square area", function(test) {
 
   var tiler = geoTiles()
     .spiral(true)
@@ -51,3 +53,27 @@ tape("tiles can produce a list of tiles for non-square", function(test) {
 
   test.end();
 });
+
+
+tape("tiles can sort tiles in a spiral, regression: nowhere to go to the right", function(test) {
+
+  var tiler = geoTiles()
+    .spiral(true)
+    .size([344, 347])
+    .scale(1467570.133233822)
+    .translate([-34559.566577928046, 220056.17673242575]);
+
+  var tiles = tiler();
+
+  test.equal(tiles.length, 4);
+  test.deepEqual(
+    tiles.slice(),
+    [ [ 2145, 1434, 12 ],
+      [ 2145, 1433, 12 ],
+      [ 2144, 1433, 12 ],
+      [ 2144, 1434, 12 ]  ]
+  );
+
+  test.end();
+});
+

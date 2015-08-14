@@ -80,7 +80,7 @@ function spiralOrder(cols, rows, callback) {
       i, n = Math.max(nx, ny),
       c, r, t;
 
-  for (i = 0; i < n * n; i++) {
+  for (i = 0; i < n * (n + 1); i++) {
     c = x + mx; r = -y + my;
     if (c >= 0  &&  c < nx  &&  r >= 0  &&  r < ny) {
       callback(cols[c], rows[r]);
@@ -90,6 +90,7 @@ function spiralOrder(cols, rows, callback) {
       dx = -dy;
       dy = t;
     }
+
     x += dx; y += dy;
   }
 }
