@@ -73,6 +73,7 @@ var tiles = function() {
 
 
 function spiralOrder(cols, rows, callback) {
+  // http://stackoverflow.com/questions/398299/looping-in-a-spiral
   var nx = cols.length, ny = rows.length,
       mx = ~~(nx/2), my = ~~(ny/2),
       x = y = 0,
