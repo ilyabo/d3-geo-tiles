@@ -5,11 +5,13 @@
   "main": "index.js",
   "dependencies": {},
   "scripts": {
-    "test": "faucet `find test -name '*-test.js'`"
+    "test": "faucet `find test -name '*-test.js'`",
+    "prepublish": "npm run test  &&  mkdir -p dist  && cp index.js dist/geo-tiles.js && uglifyjs dist/geo-tiles.js -c -m -o dist/geo-tiles.min.js"
   },
   "devDependencies": {
     "babel": "5",
     "faucet": "0.0",
-    "tape": "4"
+    "tape": "4",
+    "uglify-js": "^2.6.1"
   }
 }
