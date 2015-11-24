@@ -3,9 +3,7 @@
   "version": "0.0.2",
   "description": "Zoomable Tiles",
   "main": "index.js",
-  "dependencies": {
-    "d3": "3.x.x"
-  },
+  "dependencies": {},
   "scripts": {
     "test": "faucet `find test -name '*-test.js'`"
   },

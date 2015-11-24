@@ -1,5 +1,3 @@
-var d3 = require('d3');
-
 var tiles = function() {
   var size = [960, 500],
       scale = 256,
@@ -13,8 +11,8 @@ var tiles = function() {
         k = Math.pow(2, z - z0 + 8),
         origin = [(translate[0] - scale / 2) / k, (translate[1] - scale / 2) / k],
         tiles = [],
-        cols = d3.range(Math.max(0, Math.floor(-origin[0])), Math.max(0, Math.ceil(size[0] / k - origin[0]))),
-        rows = d3.range(Math.max(0, Math.floor(-origin[1])), Math.max(0, Math.ceil(size[1] / k - origin[1])));
+        cols = range(Math.max(0, Math.floor(-origin[0])), Math.max(0, Math.ceil(size[0] / k - origin[0]))),
+        rows = range(Math.max(0, Math.floor(-origin[1])), Math.max(0, Math.ceil(size[1] / k - origin[1])));
 
     if (spiral) {
       spiralOrder(cols, rows, function(x, y) {
@@ -142,6 +140,11 @@ tiles.tileToBoundingBox = function(x, y, z) {
 };
 
 
+function range(a, b) {
+  var i, values = [];
+  for (i = a; i < b; i++) values.push(i);
+  return values;
+}
 
 
 module.exports = tiles;
