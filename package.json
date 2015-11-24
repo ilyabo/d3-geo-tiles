@@ -1,6 +1,6 @@
 {
   "name": "geo-tiles",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Zoomable Geo Tiles",
   "main": "index.js",
   "dependencies": {},
