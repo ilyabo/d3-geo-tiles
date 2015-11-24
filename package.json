@@ -1,7 +1,7 @@
 {
-  "name": "d3-geo-tiles",
-  "version": "0.0.2",
-  "description": "Zoomable Tiles",
+  "name": "geo-tiles",
+  "version": "0.1.0",
+  "description": "Zoomable Geo Tiles",
   "main": "index.js",
   "dependencies": {},
   "scripts": {
