@@ -11,7 +11,7 @@ tape("tiles can sort tiles in a spiral", function(test) {
     .scale(100000)
     .translate([0, 0]);
 
-  var tiles = tiler().tiles;
+  var tiles = tiler();
 
   test.equal(tiles.length, 9);
   test.deepEqual(
@@ -42,7 +42,7 @@ tape("tiles can sort tiles in a spiral for non-square area", function(test) {
     .scale(100000)
     .translate([0, 0]);
 
-  var tiles = tiler().tiles;
+  var tiles = tiler();
 
   test.equal(tiles.length, 6);
   test.deepEqual(
@@ -63,7 +63,7 @@ tape("tiles can sort tiles in a spiral, regression: nowhere to go to the right",
     .scale(1467570.133233822)
     .translate([-34559.566577928046, 220056.17673242575]);
 
-  var tiles = tiler().tiles;
+  var tiles = tiler();
 
   test.equal(tiles.length, 4);
   test.deepEqual(

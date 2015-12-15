@@ -5,65 +5,70 @@ var tiles = function() {
       zoomDelta = 0,
       spiral = false;
 
-  function tiles() {
-    var z = Math.max(Math.log(scale) / Math.LN2 - 8, 0),
-        z0 = Math.round(z + zoomDelta),
-        k = Math.pow(2, z - z0 + 8),
-        origin = [(translate[0] - scale / 2) / k, (translate[1] - scale / 2) / k],
+  function geoTiles() {
+    var t = geoTiles.transform(),
         tiles = [],
-        cols = range(Math.max(0, Math.floor(-origin[0])), Math.max(0, Math.ceil(size[0] / k - origin[0]))),
-        rows = range(Math.max(0, Math.floor(-origin[1])), Math.max(0, Math.ceil(size[1] / k - origin[1])));
+        cols = range(Math.max(0, Math.floor(-t.translate[0])), Math.max(0, Math.ceil(size[0] / t.scale - t.translate[0]))),
+        rows = range(Math.max(0, Math.floor(-t.translate[1])), Math.max(0, Math.ceil(size[1] / t.scale - t.translate[1])));
 
     if (spiral) {
       spiralOrder(cols, rows, function(x, y) {
-        tiles.push([x, y, z0]);
+        tiles.push([x, y, t.z]);
       });
     } else {
       rows.forEach(function(y) {
         cols.forEach(function(x) {
-          tiles.push([x, y, z0]);
+          tiles.push([x, y, t.z]);
         });
       });
     }
 
-    return {
-      tiles: tiles,
-      scale: k,
-      translate: origin
-    };
+    return tiles;
   }
 
-  tiles.size = function(_) {
+  geoTiles.transform = function() {
+    var z = Math.max(Math.log(scale) / Math.LN2 - 8, 0),
+        z0 = Math.round(z + zoomDelta),
+        k = Math.pow(2, z - z0 + 8),
+        origin = [(translate[0] - scale / 2) / k, (translate[1] - scale / 2) / k];
+    return {
+      z: z0,
+      scale: k,
+      translate: origin 
+    };
+  };
+
+  geoTiles.size = function(_) {
     if (!arguments.length) return size;
     size = _;
-    return tiles;
+    return geoTiles;
   };
 
-  tiles.scale = function(_) {
+  geoTiles.scale = function(_) {
     if (!arguments.length) return scale;
     scale = _;
-    return tiles;
+    return geoTiles;
   };
 
-  tiles.translate = function(_) {
+  geoTiles.translate = function(_) {
     if (!arguments.length) return translate;
     translate = _;
-    return tiles;
+    return geoTiles;
   };
 
-  tiles.zoomDelta = function(_) {
+  geoTiles.zoomDelta = function(_) {
     if (!arguments.length) return zoomDelta;
     zoomDelta = +_;
-    return tiles;
+    return geoTiles;
   };
 
-  tiles.spiral = function(_) {
+  geoTiles.spiral = function(_) {
     if (!arguments.length) return spiral;
     spiral = (_ ? true : false);
-    return tiles;
+    return geoTiles;
   };
 
-  return tiles;
+  return geoTiles;
 };
 
 
