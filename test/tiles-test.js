@@ -8,11 +8,11 @@ tape("tiles can produce a list of tiles", function(test) {
     .scale(100000)
     .translate([0, 0]);
 
-  var tiles = tiler();
+  var tiles = tiler().tiles;
 
   test.equal(tiles.length, 9);
   test.deepEqual(
-    tiles.slice(),
+    tiles,
     [
       [ 255, 255, 9 ],
       [ 256, 255, 9 ],
@@ -38,11 +38,11 @@ tape("tiles can produce a list of tiles for non-square", function(test) {
     .scale(100000)
     .translate([0, 0]);
 
-  var tiles = tiler();
+  var tiles = tiler().tiles;
 
   test.equal(tiles.length, 6);
   test.deepEqual(
-    tiles.slice(),
+    tiles,
     [ [ 255, 255, 9 ], [ 256, 255, 9 ], [ 257, 255, 9 ],
       [ 255, 256, 9 ], [ 256, 256, 9 ], [ 257, 256, 9 ] ]
   );

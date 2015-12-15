@@ -26,10 +26,11 @@ var tiles = function() {
       });
     }
 
-    tiles.translate = origin;
-    tiles.scale = k;
-
-    return tiles;
+    return {
+      tiles: tiles,
+      scale: k,
+      translate: origin
+    };
   }
 
   tiles.size = function(_) {

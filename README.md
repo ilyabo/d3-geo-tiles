@@ -15,10 +15,9 @@ render standard map tiles (e.g., MapBox, CloudMade) as a base layer behind a geo
       .scale(100000)
       .translate([0, 0]);
   
-    var tiles = tiler();
-    test.equal(tiles.length, 9);
+    var tiles = tiler().tiles;
     test.deepEqual(
-      tiles.slice(),
+      tiles,
       [
         [ 255, 255, 9 ],
         [ 256, 255, 9 ],

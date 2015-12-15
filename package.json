@@ -5,8 +5,10 @@
   "main": "dist/geo-tiles.js",
   "dependencies": {},
   "scripts": {
+    "build": "mkdir -p dist  && cp src/geo-tiles.js dist/geo-tiles.js",
+    "pretest": "npm run build",
     "test": "faucet `find test -name '*-test.js'`",
-    "prepublish": "npm run test  &&  mkdir -p dist  && cp src/geo-tiles.js dist/geo-tiles.js && uglifyjs dist/geo-tiles.js -c -m -o dist/geo-tiles.min.js"
+    "prepublish": "npm run test && uglifyjs dist/geo-tiles.js -c -m -o dist/geo-tiles.min.js"
   },
   "devDependencies": {
     "babel": "5",
