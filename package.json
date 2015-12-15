@@ -2,11 +2,11 @@
   "name": "geo-tiles",
   "version": "0.1.1",
   "description": "Zoomable Geo Tiles",
-  "main": "index.js",
+  "main": "dist/geo-tiles.js",
   "dependencies": {},
   "scripts": {
     "test": "faucet `find test -name '*-test.js'`",
-    "prepublish": "npm run test  &&  mkdir -p dist  && cp index.js dist/geo-tiles.js && uglifyjs dist/geo-tiles.js -c -m -o dist/geo-tiles.min.js"
+    "prepublish": "npm run test  &&  mkdir -p dist  && cp src/geo-tiles.js dist/geo-tiles.js && uglifyjs dist/geo-tiles.js -c -m -o dist/geo-tiles.min.js"
   },
   "devDependencies": {
     "babel": "5",
