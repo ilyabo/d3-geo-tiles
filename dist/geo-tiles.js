@@ -133,7 +133,7 @@ function tile2lat(y, z) {
 tiles.locationToTile = function(lat, lon, zoom) {
   return {
     x: long2tile(lon, zoom),
-    y: lat2tile(lon, zoom),
+    y: lat2tile(lat, zoom),
     z: zoom
   };
 };
