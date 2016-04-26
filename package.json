@@ -1,7 +1,11 @@
 {
   "name": "geo-tiles",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Zoomable Geo Tiles",
+  "author": {
+    "name": "Ilya Boyandin",
+    "email": "ilyabo@gmail.com"
+  },
   "main": "dist/geo-tiles.js",
   "dependencies": {},
   "scripts": {
